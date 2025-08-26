@@ -1,0 +1,270 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="auth-container">
+  <div class="auth-background">
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row min-vh-100 align-items-center justify-content-center">
+      <div class="col-lg-10">
+        <div class="row auth-row">
+          <!-- Left side - Visual -->
+          <div
+            class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center"
+          >
+            <div class="auth-visual fade-in-left">
+              <div class="visual-content">
+                <div class="icon-wrapper mb-4">
+                  <i class="fas fa-users text-primary fa-4x pulse-icon"></i>
+                </div>
+                <h2 class="mb-3">Join M2W Community</h2>
+                <p class="text-muted mb-4">
+                  Connect with thousands of users in our modern marketplace
+                  platform.
+                </p>
+                <div class="features-list">
+                  <div class="feature-item">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    <span>Secure account protection</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    <span>Easy marketplace access</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    <span>24/7 community support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side - Form -->
+          <div class="col-lg-6">
+            <div class="auth-form-container fade-in-right">
+              <div class="card auth-card shadow-lg">
+                <div class="card-body p-5">
+                  <div class="text-center mb-4">
+                    <h3 class="auth-title">Create Account</h3>
+                    <p class="text-muted">Get started with your free account</p>
+                  </div>
+
+                  {% if messages %} {% for message in messages %}
+                  <div
+                    class="alert alert-{{ message.tags }} alert-dismissible fade show slide-down"
+                    role="alert"
+                  >
+                    {{ message }}
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="alert"
+                    ></button>
+                  </div>
+                  {% endfor %} {% endif %}
+
+                  <form method="post" class="auth-form" novalidate>
+                    {% csrf_token %}
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="id_first_name" class="form-label"
+                            >First Name</label
+                          >
+                          <div class="input-wrapper">
+                            <input
+                              type="text"
+                              class="form-control auth-input"
+                              id="id_first_name"
+                              name="first_name"
+                              required
+                              placeholder="Enter your first name"
+                            />
+                            <div class="form-focus-line"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="id_last_name" class="form-label"
+                            >Last Name</label
+                          >
+                          <div class="input-wrapper">
+                            <input
+                              type="text"
+                              class="form-control auth-input"
+                              id="id_last_name"
+                              name="last_name"
+                              required
+                              placeholder="Enter your last name"
+                            />
+                            <div class="form-focus-line"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="id_username" class="form-label"
+                        >Username</label
+                      >
+                      <div class="input-wrapper">
+                        <input
+                          type="text"
+                          class="form-control auth-input"
+                          id="id_username"
+                          name="username"
+                          required
+                          placeholder="Enter your username"
+                        />
+                        <div class="form-focus-line"></div>
+                      </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="id_email" class="form-label"
+                        >Email Address</label
+                      >
+                      <div class="input-wrapper">
+                        <input
+                          type="email"
+                          class="form-control auth-input"
+                          id="id_email"
+                          name="email"
+                          required
+                          placeholder="Enter your email address"
+                        />
+                        <div class="form-focus-line"></div>
+                      </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="id_phone" class="form-label"
+                        >Phone Number</label
+                      >
+                      <div class="input-wrapper">
+                        <input
+                          type="tel"
+                          class="form-control auth-input"
+                          id="id_phone"
+                          name="phone"
+                          placeholder="Enter your phone number"
+                        />
+                        <div class="form-focus-line"></div>
+                      </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="id_password1" class="form-label"
+                        >Password</label
+                      >
+                      <div class="input-wrapper">
+                        <div class="input-group">
+                          <input
+                            class="form-control auth-input"
+                            id="id_password1"
+                            name="password1"
+                            type="password"
+                            required
+                          />
+                          <button
+                            class="btn btn-outline-secondary password-toggle"
+                            type="button"
+                            data-target="#id_password1"
+                            onclick="togglePassword('id_password1', this)"
+                          >
+                            <i class="fas fa-eye"></i>
+                          </button>
+                        </div>
+                        <div class="form-focus-line"></div>
+                      </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                      <label for="id_password2" class="form-label"
+                        >Confirm Password</label
+                      >
+                      <div class="input-wrapper">
+                        <div class="input-group">
+                          <input
+                            class="form-control auth-input"
+                            id="id_password2"
+                            name="password2"
+                            type="password"
+                            required
+                          />
+                          <button
+                            class="btn btn-outline-secondary password-toggle"
+                            type="button"
+                            data-target="#id_password2"
+                            onclick="togglePassword('id_password2', this)"
+                          >
+                            <i class="fas fa-eye"></i>
+                          </button>
+                        </div>
+                        <div class="form-focus-line"></div>
+                      </div>
+                    </div>
+
+                    <div class="d-grid mb-3">
+                      <button
+                        class="btn auth-btn btn-lg ripple-effect"
+                        type="submit"
+                      >
+                        <span class="btn-text">Create Account</span>
+                        <div class="btn-loader d-none">
+                          <div
+                            class="spinner-border spinner-border-sm"
+                            role="status"
+                          ></div>
+                        </div>
+                      </button>
+                    </div>
+                  </form>
+
+                  <div class="text-center">
+                    <p class="mb-0 text-muted">
+                      Already have an account?
+                      <a href="{% url 'signin' %}" class="auth-link">Sign in</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function togglePassword(inputId, button) {
+    const input = document.getElementById(inputId);
+    const icon = button.querySelector("i");
+
+    if (input && icon) {
+      if (input.type === "password") {
+        input.type = "text";
+        icon.className = "fas fa-eye-slash";
+      } else {
+        input.type = "password";
+        icon.className = "fas fa-eye";
+      }
+
+      // Add animation
+      icon.style.transform = "scale(0.8)";
+      setTimeout(() => {
+        icon.style.transform = "scale(1)";
+      }, 150);
+    }
+  }
+</script>
+{% endblock %}

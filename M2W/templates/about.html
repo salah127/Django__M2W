@@ -1,0 +1,201 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="about-container">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <!-- Hero Section -->
+        <div class="text-center mb-5">
+          <div class="hero-icon mb-4">
+            <i class="fas fa-store fa-4x text-primary"></i>
+          </div>
+          <h1 class="display-4 fw-bold text-primary mb-3">À Propos de M2W</h1>
+          <p class="lead text-muted">
+            Modern Marketplace - Votre plateforme de commerce innovante
+          </p>
+          <div class="date-badge">
+            <span class="badge bg-primary fs-6 px-3 py-2">
+              <i class="fas fa-calendar-alt me-2"></i>{{ current_date }}
+            </span>
+          </div>
+        </div>
+
+        <!-- About Content -->
+        <div class="row g-4 mb-5">
+          <div class="col-lg-6">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body p-4">
+                <div class="icon-wrapper mb-3">
+                  <i class="fas fa-rocket text-primary fa-2x"></i>
+                </div>
+                <h3 class="card-title text-primary">Notre Mission</h3>
+                <p class="card-text text-muted">
+                  M2W (Modern Marketplace Workspace) est une plateforme
+                  révolutionnaire qui connecte acheteurs et vendeurs dans un
+                  environnement numérique sécurisé et innovant. Notre mission
+                  est de simplifier le commerce en ligne en offrant des outils
+                  modernes et une expérience utilisateur exceptionnelle.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body p-4">
+                <div class="icon-wrapper mb-3">
+                  <i class="fas fa-users text-success fa-2x"></i>
+                </div>
+                <h3 class="card-title text-success">Notre Communauté</h3>
+                <p class="card-text text-muted">
+                  Rejoignez des milliers d'utilisateurs qui font confiance à M2W
+                  pour leurs transactions quotidiennes. Notre plateforme
+                  favorise les échanges transparents et sécurisés, créant un
+                  écosystème commercial dynamique où chacun peut prospérer.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="mb-5">
+          <h2 class="text-center mb-4 text-primary">Pourquoi Choisir M2W ?</h2>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="feature-item text-center p-3">
+                <i class="fas fa-shield-alt text-info fa-3x mb-3"></i>
+                <h5 class="text-dark">Sécurité Avancée</h5>
+                <p class="text-muted small">
+                  Protection des données et transactions sécurisées
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-item text-center p-3">
+                <i class="fas fa-mobile-alt text-warning fa-3x mb-3"></i>
+                <h5 class="text-dark">Interface Moderne</h5>
+                <p class="text-muted small">
+                  Design responsive et expérience utilisateur optimisée
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-item text-center p-3">
+                <i class="fas fa-headset text-danger fa-3x mb-3"></i>
+                <h5 class="text-dark">Support 24/7</h5>
+                <p class="text-muted small">
+                  Assistance client disponible à tout moment
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="bg-light rounded-3 p-4 mb-5">
+          <div class="row text-center">
+            <div class="col-md-3">
+              <h3 class="text-primary fw-bold">1000+</h3>
+              <p class="text-muted">Utilisateurs Actifs</p>
+            </div>
+            <div class="col-md-3">
+              <h3 class="text-success fw-bold">500+</h3>
+              <p class="text-muted">Produits Vendus</p>
+            </div>
+            <div class="col-md-3">
+              <h3 class="text-info fw-bold">50+</h3>
+              <p class="text-muted">Catégories</p>
+            </div>
+            <div class="col-md-3">
+              <h3 class="text-warning fw-bold">24/7</h3>
+              <p class="text-muted">Support Client</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="text-center">
+          <h3 class="text-primary mb-3">Contactez-Nous</h3>
+          <p class="text-muted mb-4">
+            Une question ? Une suggestion ? N'hésitez pas à nous contacter !
+          </p>
+          <div class="contact-links">
+            <a
+              href="mailto:contact@m2w.com"
+              class="btn btn-outline-primary me-3"
+            >
+              <i class="fas fa-envelope me-2"></i>Email
+            </a>
+            <a href="tel:+33123456789" class="btn btn-outline-success me-3">
+              <i class="fas fa-phone me-2"></i>Téléphone
+            </a>
+            <a href="#" class="btn btn-outline-info">
+              <i class="fas fa-comments me-2"></i>Chat Live
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .about-container {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 80vh;
+  }
+
+  .hero-icon {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .feature-item {
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+  }
+
+  .feature-item:hover {
+    transform: translateY(-5px);
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .date-badge {
+    margin-top: 1rem;
+  }
+
+  .card {
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .contact-links a {
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+
+  .contact-links a:hover {
+    transform: scale(1.05);
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,7 @@
+Django==4.1.4
+pymongo==4.4.0
+# djongo is optional — only needed if you use MongoDB via djongo
+# djongo==1.3.6
+python-dotenv==1.0.0
+whitenoise==6.5.0
+gunicorn==20.1.0

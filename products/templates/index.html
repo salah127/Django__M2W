@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+    <h1>Articles</h1>
+  </a>
+    <div class="card-group" style="flex-wrap: wrap;">
+        {% for product in products %}
+        <div class="card" style="border-radius:20px; align-items:center; place-content:center; display:flex; padding:1vw; border:solid 3px red; margin:1vw; flex:1 1 10%;">
+            <img src="{{ product.image }}" class="card-img-top img-fluid" style="border:solid 1px black;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+            <a href="#" class="btn btn-primary">{{ product.price }}$</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+    {% endblock %}

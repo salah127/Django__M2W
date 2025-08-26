@@ -1,0 +1,163 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="auth-container">
+  <div class="auth-background">
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row min-vh-100 align-items-center justify-content-center">
+      <div class="col-lg-10">
+        <div class="row auth-row">
+          <!-- Left side - Visual -->
+          <div
+            class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center"
+          >
+            <div class="auth-visual fade-in-left">
+              <div class="visual-content">
+                <div class="icon-wrapper mb-4">
+                  <i
+                    class="fas fa-sign-in-alt text-primary fa-4x pulse-icon"
+                  ></i>
+                </div>
+                <h2 class="mb-3">Welcome Back</h2>
+                <p class="text-muted mb-4">
+                  Sign in to continue your journey with M2W the bet marketplace.
+                </p>
+                <div class="features-list">
+                  <div class="feature-item">
+                    <i class="fas fa-shield-alt text-success me-2"></i>
+                    <span>Secure login process</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="fas fa-rocket text-success me-2"></i>
+                    <span>Fast marketplace access</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="fas fa-heart text-success me-2"></i>
+                    <span>Trusted by thousands</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side - Form -->
+          <div class="col-lg-6">
+            <div class="auth-form-container fade-in-right">
+              <div class="card auth-card shadow-lg">
+                <div class="card-body p-5">
+                  <div class="text-center mb-4">
+                    <h3 class="auth-title">Welcome Back</h3>
+                    <p class="text-muted">Sign in to your account</p>
+                  </div>
+
+                  <form method="post" class="auth-form" novalidate>
+                    {% csrf_token %}
+
+                    <div class="form-group mb-3">
+                      <label for="id_username" class="form-label"
+                        >Username</label
+                      >
+                      <div class="input-wrapper">
+                        <input
+                          class="form-control auth-input"
+                          id="id_username"
+                          name="username"
+                          type="text"
+                          required
+                        />
+                        <div class="form-focus-line"></div>
+                      </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                      <label for="id_password" class="form-label"
+                        >Password</label
+                      >
+                      <div class="input-wrapper">
+                        <div class="input-group">
+                          <input
+                            class="form-control auth-input"
+                            id="id_password"
+                            name="password"
+                            type="password"
+                            required
+                          />
+                          <button
+                            class="btn btn-outline-secondary password-toggle"
+                            type="button"
+                            data-target="#id_password"
+                            onclick="togglePassword('id_password', this)"
+                          >
+                            <i class="fas fa-eye"></i>
+                          </button>
+                        </div>
+                        <div class="form-focus-line"></div>
+                      </div>
+                    </div>
+
+                    <div class="d-grid mb-3">
+                      <button
+                        class="btn auth-btn btn-lg ripple-effect"
+                        type="submit"
+                      >
+                        <span class="btn-text">Sign In</span>
+                        <div class="btn-loader d-none">
+                          <div
+                            class="spinner-border spinner-border-sm"
+                            role="status"
+                          ></div>
+                        </div>
+                      </button>
+                    </div>
+                  </form>
+
+                  <div class="text-center">
+                    <p class="mb-2">
+                      <a href="#" class="auth-link small"
+                        >Forgot your password?</a
+                      >
+                    </p>
+                    <p class="mb-0 text-muted">
+                      Don't have an account?
+                      <a href="{% url 'signup' %}" class="auth-link">Sign up</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function togglePassword(inputId, button) {
+    const input = document.getElementById(inputId);
+    const icon = button.querySelector("i");
+
+    if (input && icon) {
+      if (input.type === "password") {
+        input.type = "text";
+        icon.className = "fas fa-eye-slash";
+      } else {
+        input.type = "password";
+        icon.className = "fas fa-eye";
+      }
+
+      // Add animation
+      icon.style.transform = "scale(0.8)";
+      setTimeout(() => {
+        icon.style.transform = "scale(1)";
+      }, 150);
+    }
+  }
+</script>
+{% endblock %}
